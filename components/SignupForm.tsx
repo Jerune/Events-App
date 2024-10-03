@@ -3,6 +3,7 @@
 import { registerUser } from '@/actions/auth'
 import { Input } from '@nextui-org/react'
 import Link from 'next/link'
+import Submit from './Submit'
 import { useFormState } from 'react-dom'
 
 const initState = { message: null }
@@ -25,10 +26,11 @@ const SignupForm = () => {
         placeholder="Password"
         required
       />
-
+      <Submit label='Sign Up'/>
       <div>
         <Link href="/signin">{`Already have an account?`}</Link>
       </div>
+      {formState.message && <p>{formState.message}</p>}
     </form>
   )
 }
