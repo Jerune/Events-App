@@ -3,17 +3,17 @@ import { getCurrentUser } from "@/utils/users"
 import { Chip } from "@nextui-org/react"
 import Link from "next/link"
 
-export default async function Events() {
-  const user = await getCurrentUser()
-  const events = await getEventsForDashboard(user.id)
-  
-  const statusColors = {
+const statusColors = {
     draft: 'warning',
     live: 'success',
     started: 'primary',
     ended: 'disabled',
     canceled: 'danger',
   };
+
+export default async function Events() {
+  const user = await getCurrentUser()
+  const events = await getEventsForDashboard(user.id)
 
   return (
     <div className="w-full h-full p-4 flex justify-center">
